@@ -10,6 +10,25 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
     <link href="style.css" rel="stylesheet">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
 </head>
 
 <!-- Toggle light-page ↔ dark-page -->
@@ -21,21 +40,20 @@
 
     <!-- Main content -->
     <main class="container py-4">
-        <h1 class="mb-2">In Loving Memory of Alex! </h1>
+        <h2>In Loving Memory of Alex</h2>
+        <p>How to create side-by-side images with the CSS float property:</p>
 
-        <!-- My Navigation Menu -->
-        <section class="p-5 mb-4 bg-body-tertiary rounded-3">
-             <h2>My Navigation Menu</h2>
-
-            <ul>
-            <li><a href="http://127.0.0.1:5501/final_website.html">Home</a></li>
-            <li><a href="http://127.0.0.1:5500/about.html">About</a></li>
-            <li><a href="http://127.0.0.1:5500/Projects.html">Projects</a></li>
-            </ul>
-
-<p>Above are a few links to some of the major aspects about my life.</p>
-
-        </section>
+        <div class="row">
+            <div class="column">
+                <img src="alex 2.JPEG" alt="Snow" style="width:100%">
+            </div>
+            <div class="column">
+                <img src="Zak and Alex.JPEG" alt="Forest" style="width:100%">
+            </div>
+            <div class="column">
+                <img src="img_mountains.jpg" alt="Mountains" style="width:100%">
+            </div>
+        </div>
 
         <!-- Introduction Section -->
         <div class="box mb-4">
