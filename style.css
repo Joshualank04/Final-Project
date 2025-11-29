@@ -6,7 +6,7 @@
   /* page background */
   --text: #210934;
   /* main text */
-  --surface: #F6EAFF;
+  --surface: #b10707;
   /* cards, boxes, list items */
   --nav: #b10707;
   /* navbar (dark bar) */
@@ -63,14 +63,14 @@ body {
 /* ====== Hero (“jumbotron”) ====== */
 .bg-body-tertiary {
   background-color: var(--hero) !important;
-  color: var(--text);
+  color: var();
 }
 
 /* ====== Cards & Boxes (light surfaces) ====== */
 .card,
 .box {
   background: var(--surface);
-  color: var(--text);
+  color: #FFFFFF;
   border: 1px solid var(--border);
   border-radius: .5rem;
 }
