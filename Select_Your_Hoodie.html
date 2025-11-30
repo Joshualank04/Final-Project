@@ -50,15 +50,14 @@
 
     <!-- Opening Title -->
     <main class="container py-4">
-        <h1 class="mb-2">Support and Wear Alex's Memory with Pride</h1>
+        <h1 class="mb-2" Style= "font-size:300%;">❤️Support Alex & Wear His Memory with Pride❤️</h1>
+        <br>
 
     <!-- Disription of this page and directions listed on how to purchase your hoodie -->
         <div class="box mb-4">
-            <h3 Style= "font-size:300%;" class="h3">How do I purchase a hoodie to support Alex?</h3>
-            <p class="mb-0 h5">This page offers a custom memorial hoodie created in loving memory of Alex. The design was thoughtfully made to reflect Alex's personal style and favorite look, serving as a meaningful way for friends, family, and supporters to honor his life. Every hoodie purchased represents love, remembrance, and continued support for those closest to Alex.</p>
-                <br>   
-            <img src="Images/2025 xbox.jpg" class="rounded-3" alt="Profile Image" width="450" height="350">
+            <h3 Style= "font-size:300%;" class="h3">How do I purchase a hoodie to support Alex❔</h3>
                 <br>
+            <p class="mb-0 h5">This page offers a custom memorial hoodie created in loving memory of Alex. The design was thoughtfully made to reflect Alex's personal style and favorite look, serving as a meaningful way for friends, family, and supporters to honor his life. Every hoodie purchased represents love, remembrance, and continued support for those closest to Alex.</p>
                 <br>
             <p class="mb-0 h5">Directions:</p>
                 <br>
@@ -67,26 +66,20 @@
             <p class="mb-0 h5">Step 2: On the right image, please select your desired hoodie color.</p>
                 <br>
             <p class="mb-0 h5">Step 3: Once your size and color are selected, proceed to the final purchase button below to complete your order.</p>
-                <br>    
-            <img src="Images/fishing.jpg" class="rounded-3" alt="Profile Image" width="350" height="350">
                 <br>
-                <br>
-            <img src="Images/nature-9658253_1280.jpg" class="rounded-3" alt="Profile Image" width="350" height="350">
         </div>
 
     <!-- The purchasing section where the user selects their size and color of desired hoodie-->
         <div class="box mb-4">
             <h3 Style="font-size:300%;" class="h3">Please Select Your Hoodie</h3>
             <br>
-        
-            <div class="row">    
+         
     <!-- Left side on front of hoodie select your size section-->
-        
+            <div class="row">    
                 <div class="column">
-                    <img src="Pictures/front_of_hoodie.jpg" alt="The front side of hoodies" style="width:300px; height:300px; object-fit:cover;">
+                    <img src="Pictures/front_of_hoodie.jpg" class="rounded-4" alt="The front side of hoodies" style="width:300px; height:300px; object-fit:cover;">
                     <br>
                     <p>Please select your desired size below.</p>
-
                     <input list="Sizes" id="sizeInput" name="Sizes">
                     <datalist id="Sizes">
                         <option value="Extra Large">
@@ -95,18 +88,15 @@
                         <option value="Small">
                         <option value="Extra Small">
                     </datalist>
-                
                     <br><br>
-                    <button type="button" onclick="submitSize()">Submit Size</button>                
-            
+                    <button type="button" onclick="submitSize()">Submit Size</button>
                 </div>
         
     <!-- Middle section on back of hoodie to select the color-->
                 <div class="column">
-                    <img src="Pictures/back_of_hoodie.jpg" alt="The back side of hoodies" style="width:300px; height:300px; object-fit:cover;">
+                    <img src="Pictures/back_of_hoodie.jpg" class="rounded-4" alt="The back side of hoodies" style="width:300px; height:300px; object-fit:cover;">
                     <br>
                     <p>Please select your desired color below.</p>
-
                     <input list="Colors" id="colorInput" name="Colors">
                     <datalist id="Colors">
                         <option value="Black">
@@ -115,17 +105,14 @@
                         <option value="Red">
                         <option value="White">
                     </datalist>
-
                     <br><br>
                     <button type="button" onclick="submitColor()">Submit Color</button>
-                
                 </div>
 
     <!-- Right side on the thank you hoodie and to ensure you're purchasing the correct hoodie before selecting "purchase my hoodie" -->
                 <div class="column">
-                    <img src="Pictures/Thank_You_Hoodie.jpg" alt="Thank you for your purchase on a hoodie" style="width:300px; height:300px; object-fit:cover;">
+                    <img src="Pictures/Thank_You_Hoodie.jpg" class="rounded-4" alt="Thank you for your purchase on a hoodie" style="width:300px; height:300px; object-fit:cover;">
                     <p>Confirm & complete your hoodie purchase below.</p>
-
                     <form action="Thank_You_For_Your_Purchase.html" method="get" onsubmit="return checkFinalSelection ()">
                         <select id="finalOption" name="finalOption"></select>
                             <option value=""> - Submit size and color first - </option>
@@ -134,13 +121,9 @@
                         <input type="submit" value="Purchase My Hoodie">
                     </form>
                 </div>
-
             </div>
         </div>
     </main>
-
-
-
 
     <script>
         // Load only the #site-nav element
@@ -150,9 +133,11 @@
 
     <script>
 
+    // JavaScript included to handle the size and color selections, and also update the final dropdown accordingly
         let savedSize = "";
         let savedColor = "";
 
+    // This function is to collect and submit the size selected by user
         function submitSize() {
             const size = document.getElementById("sizeInput").value.trim();
             if (!size) {
@@ -164,6 +149,7 @@
             alert("Size submitted: " + size);
         }
 
+    // This function is to collect and submit the color selected by user.
         function submitColor() {
             const color = document.getElementById("colorInput").value.trim();
             if (!color) {
@@ -175,6 +161,7 @@
             alert("Color submitted: " + color);
         }
 
+    // This function is intended to update the final dropdown with the final selected size and color. 
         function updateFinalDropdown() {
             const finalSelect = document.getElementById("finalOption");
             finalSelect.innerHTML = "";
@@ -187,6 +174,7 @@
                 return;
             }
 
+    // This was implemented to create the final option text once both size and color got selected.
             const combo = savedSize + " - " + savedColor;
             const comboText = "You've selected a " + savedColor + ", " + savedSize + " hoodie. Thank you!";
             const option = document.createElement("option");
@@ -195,6 +183,7 @@
             finalSelect.appendChild(option);
         }
 
+    // This function checks to ensure both size and color get selected before allowing user to proceed to purchasing. 
         function checkFinalSelection() {
             if (!savedSize || !savedColor) {
                 alert("Please submit both a size and a color, before purchasing.");
