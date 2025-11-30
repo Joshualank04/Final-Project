@@ -10,6 +10,33 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
     <link href="style.css" rel="stylesheet">
+
+    <style>
+        *   {
+        box-sizing: border-box;
+            }
+
+        .column {
+        float: left;
+        width: 33.33%;
+        padding: 5px;
+                }
+
+        /* Clearfix (clear floats) */
+
+        .row::after {
+        content: center;
+        clear: both;
+        display: table;
+                    }
+
+        /* This was used to center the page */
+    
+        h1 {text-align: center;}
+        p {text-align: center;}
+        div {text-align: center;}
+        
+    </style>
 </head>
 
 <!-- Toggle light-page ↔ dark-page -->
@@ -19,25 +46,84 @@
     <!-- Navbar gets added here -->
     <div id="nav-placeholder"></div>
 
-    <!-- Main content -->
+    <!-- Opening Title -->
     <main class="container py-4">
-        <h1 class="mb-2">Hoodie Selection</h1>
+        <h1 class="mb-2">Support and Wear Alex's Memory with Pride</h1>
 
-      <!-- About Me -->
-         <div class="box mb-4">
-            <h5 Style= "font-size:300%;" class="h5">About Me</h5>
-            <p class="mb-0 h5">Personal interests include games <a href="https://www.xbox.com/en-us/xbox-game-pass/pc-game-pass/direct?ef_id=_k_f3f71ec337bf1ef665707619389f4f42_k_&OCID=AIDcmm7gslyy4j_SEM__k_f3f71ec337bf1ef665707619389f4f42_k_&msclkid=f3f71ec337bf1ef665707619389f4f42">Xbox</a></p>
-            <br>   
+      <!-- Disription of this page and directions listed on how to purchase your hoodie -->
+        <div class="box mb-4">
+            <h3 Style= "font-size:300%;" class="h3">How do I purchase a hoodie to support Alex?</h3>
+            <p class="mb-0 h5">This page offers a custom memorial hoodie created in loving memory of Alex. The design was thoughtfully made to reflect Alex's personal style and favorite look, serving as a meaningful way for friends, family, and supporters to honor his life. Every hoodie purchased represents love, remembrance, and continued support for those closest to Alex.</p>
+                <br>   
             <img src="Images/2025 xbox.jpg" class="rounded-3" alt="Profile Image" width="450" height="350">
                 <br>
                 <br>
-            <p class="mb-0 h5">Personal hobbies include fishing and the outdoors   <a href="https://www.colorado.com/activities/fishing?msclkid=4bbc70c76467155ac947181d6bd080c8&utm_source=bing&utm_medium=cpc&utm_campaign=MI%20Colorado%20Search%20Activities&utm_term=places%20to%20fish&utm_content=Fishing%20Travel">Colorado Fishing</a></p>
-            <br>    
+            <p class="mb-0 h5">Directions:</p>
+                <br>
+            <p class="mb-0 h5">Step 1: On the left image, please select your desired hoodie size.</p>
+                <br>
+            <p class="mb-0 h5">Step 2: On the right image, please select your desired hoodie color.</p>
+                <br>
+            <p class="mb-0 h5">Step 3: Once your size and color are selected, proceed to the final purchase button below to complete your order.</p>
+                <br>    
             <img src="Images/fishing.jpg" class="rounded-3" alt="Profile Image" width="350" height="350">
-                   <br>
-                   <br>
-                <img src="Images/nature-9658253_1280.jpg" class="rounded-3" alt="Profile Image" width="350" height="350">
+                <br>
+                <br>
+            <img src="Images/nature-9658253_1280.jpg" class="rounded-3" alt="Profile Image" width="350" height="350">
+        </div>
 
+        <!-- The purchasing section where the user selects their size and color of desired hoodie-->
+        <div class="box mb-4">
+            <h3 Style="font-size:300%;" class="h3">Please Select Your Hoodie</h3>
+            <br>
+            <div class="row">
+            <div class="column">
+                <img src="Pictures/front_of_hoodie.jpg" alt="The front side of hoodies" style="width:300px; height:300px; object-fit:cover;">
+                <p>Please select your desired size below.</p>
+                <form action="/action_page.php">
+                <input list="Sizes" name="Sizes">
+                <datalist id="Sizes">
+                    <option value="Extra Large">
+                    <option value="Large">
+                    <option value="Medium">
+                    <option value="Small">
+                    <option value="Extra Small">
+                </datalist>
+                <input type="submit">
+                </form>
+            </div>
+            <div class="column">
+                <img src="Pictures/back_of_hoodie.jpg" alt="The back side of hoodies" style="width:300px; height:300px; object-fit:cover;">
+                <p>Please select your desired color below.</p>
+                <form action="/action_page.php">
+                <input list="Colors" name="Colors">
+                <datalist id="Colors">
+                    <option value="Black">
+                    <option value="Gray">
+                    <option value="Navy Blue">
+                    <option value="Red">
+                    <option value="White">
+                </datalist>
+                <input type="submit">
+                </form>
+            </div>
+            <div class="column">
+                <img src="Pictures/Thank_You_Hoodie.jpg" alt="Thank you for your purchase on a hoodie" style="width:300px; height:300px; object-fit:cover;">
+                <p>Thank you for purchasing your new...</p>
+                <form action="/action_page.php">
+                <input list="Colors" name="Colors">
+                <datalist id="Colors">
+                    <option value="Black">
+                    <option value="Gray">
+                    <option value="Navy Blue">
+                    <option value="Red">
+                    <option value="White">
+                </datalist>
+                <input type="submit">
+                </form>
+            </div>
+            </div>
+        </div>
 
         </div>
     </main>
