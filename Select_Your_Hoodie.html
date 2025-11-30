@@ -79,9 +79,10 @@
             <div class="row">
             <div class="column">
                 <img src="Pictures/front_of_hoodie.jpg" alt="The front side of hoodies" style="width:300px; height:300px; object-fit:cover;">
+                <br>
                 <p>Please select your desired size below.</p>
-                <form action="/action_page.php">
-                <input list="Sizes" name="Sizes">
+
+                <input list="Sizes" id="sizeInput">
                 <datalist id="Sizes">
                     <option value="Extra Large">
                     <option value="Large">
@@ -89,14 +90,15 @@
                     <option value="Small">
                     <option value="Extra Small">
                 </datalist>
-                <input type="submit">
-                </form>
+                <input type="submit" onclick="submitSize()">
+                
             </div>
             <div class="column">
                 <img src="Pictures/back_of_hoodie.jpg" alt="The back side of hoodies" style="width:300px; height:300px; object-fit:cover;">
+                <br>
                 <p>Please select your desired color below.</p>
-                <form action="/action_page.php">
-                <input list="Colors" name="Colors">
+
+                <input list="Colors" id="colorInput">
                 <datalist id="Colors">
                     <option value="Black">
                     <option value="Gray">
@@ -104,22 +106,19 @@
                     <option value="Red">
                     <option value="White">
                 </datalist>
-                <input type="submit">
-                </form>
+                <input type="submit" onclick="submitColor()">
+                
             </div>
             <div class="column">
                 <img src="Pictures/Thank_You_Hoodie.jpg" alt="Thank you for your purchase on a hoodie" style="width:300px; height:300px; object-fit:cover;">
-                <p>Thank you for purchasing your new...</p>
-                <form action="/action_page.php">
-                <input list="Colors" name="Colors">
-                <datalist id="Colors">
-                    <option value="Black">
-                    <option value="Gray">
-                    <option value="Navy Blue">
-                    <option value="Red">
-                    <option value="White">
-                </datalist>
-                <input type="submit">
+                <p>Thank you for purchasing your new hoodie!</p>
+                <form action="/action_page.php" method="get" onsubmit="return CheckFinalSelection ()">
+                    <label for="finalOption"><strong>Your Size &amp; Colors;</strong></label><br>
+                    <select id="finalOption" name="finalOption">
+                        <option value="Select Your Final Size & Color Below">           </option>
+                    </select>
+                    <br><br>
+                    <input type="Purchase Hoodie" value="Purchase My Hoodie">
                 </form>
             </div>
             </div>
