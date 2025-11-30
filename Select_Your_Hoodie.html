@@ -90,7 +90,7 @@
                     <option value="Small">
                     <option value="Extra Small">
                 </datalist>
-                <input type="submit" onclick="submitSize()">
+                <button type="submit" onclick="submitSize()">Submit Size</button>
                 
             </div>
             <div class="column">
@@ -106,16 +106,15 @@
                     <option value="Red">
                     <option value="White">
                 </datalist>
-                <input type="submit" onclick="submitColor()">
+                <button type="submit" onclick="submitColor()">Submit Color</button>
                 
             </div>
             <div class="column">
                 <img src="Pictures/Thank_You_Hoodie.jpg" alt="Thank you for your purchase on a hoodie" style="width:300px; height:300px; object-fit:cover;">
                 <p>Thank you for purchasing your new hoodie!</p>
-                <form action="/action_page.php" method="get" onsubmit="return CheckFinalSelection ()">
-                    <label for="finalOption"><strong>Your Size &amp; Colors;</strong></label><br>
-                    <select id="finalOption" name="finalOption">
-                        <option value="Select Your Final Size & Color Below">           </option>
+                <form action="Thank_You_For_Your_Purchase.html" method="get" onsubmit="return CheckFinalSelection ()">
+                    <select id="finalOption">
+                        <option value=" "></option>
                     </select>
                     <br><br>
                     <input type="Purchase Hoodie" value="Purchase My Hoodie">
@@ -135,6 +134,60 @@
         $("#nav-placeholder").load("navbar.html #site-nav");
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        let savedSize = "";
+        let savedColor = "";
+
+        function submitSize() {
+            const size = document.getElementById("sizeInput").value.trim();
+            if (!Size) {
+                alert("Please enter a size first.");
+                return;
+            }
+            savedSize = size;
+            updateFinalDropdown();
+            alert("Size submitted: " + size);
+        }
+
+        function submitColor() {
+            const color = document.getElementById("colorInput").value.trim();
+            if (!color) {
+                alert("Please enter a color first.");
+                return;
+            }
+            savedColor = color;
+            updateFinalDropdown();
+            alert("Color submitted: " + color);
+        }
+        function updateFinalDropdown() {
+            const finalSelect = document.getElementById("finalOption");
+            finalSelect.innerHTML = "";
+
+            if (!savedSize || !savedColor) {
+                const option = document.createElement("option");
+                option.value = savedSize + " - " + savedColor;
+                option.text = "Hoodie Size: " + savedSize + ", Color: " + savedColor;
+                finalSelect.appendChild(option);
+                return;
+            }
+
+            const combo = savedSize + " - " + savedColor;
+            const option = document.createElement("option");
+            option.value = combo;
+            option.textContent = combo;
+            finalSelect.appendChild(option);
+        }
+
+        function checkFinalSelection() {
+            if (!savedSize || !savedColor) {
+                alert("Please submit both a size and a color before purchasing.");
+                return false;
+            }
+            return false;
+        }
+
+    </script>
 
 </body>
 
