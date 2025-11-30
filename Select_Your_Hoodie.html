@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Template</title>
@@ -12,6 +13,7 @@
     <link href="style.css" rel="stylesheet">
 
     <style>
+
         *   {
         box-sizing: border-box;
             }
@@ -50,7 +52,7 @@
     <main class="container py-4">
         <h1 class="mb-2">Support and Wear Alex's Memory with Pride</h1>
 
-      <!-- Disription of this page and directions listed on how to purchase your hoodie -->
+    <!-- Disription of this page and directions listed on how to purchase your hoodie -->
         <div class="box mb-4">
             <h3 Style= "font-size:300%;" class="h3">How do I purchase a hoodie to support Alex?</h3>
             <p class="mb-0 h5">This page offers a custom memorial hoodie created in loving memory of Alex. The design was thoughtfully made to reflect Alex's personal style and favorite look, serving as a meaningful way for friends, family, and supporters to honor his life. Every hoodie purchased represents love, remembrance, and continued support for those closest to Alex.</p>
@@ -72,57 +74,68 @@
             <img src="Images/nature-9658253_1280.jpg" class="rounded-3" alt="Profile Image" width="350" height="350">
         </div>
 
-        <!-- The purchasing section where the user selects their size and color of desired hoodie-->
+    <!-- The purchasing section where the user selects their size and color of desired hoodie-->
         <div class="box mb-4">
             <h3 Style="font-size:300%;" class="h3">Please Select Your Hoodie</h3>
             <br>
-            <div class="row">
-            <div class="column">
-                <img src="Pictures/front_of_hoodie.jpg" alt="The front side of hoodies" style="width:300px; height:300px; object-fit:cover;">
-                <br>
-                <p>Please select your desired size below.</p>
+        
+            <div class="row">    
+    <!-- Left side on front of hoodie select your size section-->
+        
+                <div class="column">
+                    <img src="Pictures/front_of_hoodie.jpg" alt="The front side of hoodies" style="width:300px; height:300px; object-fit:cover;">
+                    <br>
+                    <p>Please select your desired size below.</p>
 
-                <input list="Sizes" id="sizeInput">
-                <datalist id="Sizes">
-                    <option value="Extra Large">
-                    <option value="Large">
-                    <option value="Medium">
-                    <option value="Small">
-                    <option value="Extra Small">
-                </datalist>
-                <button type="submit" onclick="submitSize()">Submit Size</button>
+                    <input list="Sizes" id="sizeInput" name="Sizes">
+                    <datalist id="Sizes">
+                        <option value="Extra Large">
+                        <option value="Large">
+                        <option value="Medium">
+                        <option value="Small">
+                        <option value="Extra Small">
+                    </datalist>
                 
-            </div>
-            <div class="column">
-                <img src="Pictures/back_of_hoodie.jpg" alt="The back side of hoodies" style="width:300px; height:300px; object-fit:cover;">
-                <br>
-                <p>Please select your desired color below.</p>
-
-                <input list="Colors" id="colorInput">
-                <datalist id="Colors">
-                    <option value="Black">
-                    <option value="Gray">
-                    <option value="Navy Blue">
-                    <option value="Red">
-                    <option value="White">
-                </datalist>
-                <button type="submit" onclick="submitColor()">Submit Color</button>
-                
-            </div>
-            <div class="column">
-                <img src="Pictures/Thank_You_Hoodie.jpg" alt="Thank you for your purchase on a hoodie" style="width:300px; height:300px; object-fit:cover;">
-                <p>Thank you for purchasing your new hoodie!</p>
-                <form action="Thank_You_For_Your_Purchase.html" method="get" onsubmit="return CheckFinalSelection ()">
-                    <select id="finalOption">
-                        <option value=" "></option>
-                    </select>
                     <br><br>
-                    <input type="Purchase Hoodie" value="Purchase My Hoodie">
-                </form>
-            </div>
-            </div>
-        </div>
+                    <button type="button" onclick="submitSize()">Submit Size</button>                
+            
+                </div>
+        
+    <!-- Middle section on back of hoodie to select the color-->
+                <div class="column">
+                    <img src="Pictures/back_of_hoodie.jpg" alt="The back side of hoodies" style="width:300px; height:300px; object-fit:cover;">
+                    <br>
+                    <p>Please select your desired color below.</p>
 
+                    <input list="Colors" id="colorInput" name="Colors">
+                    <datalist id="Colors">
+                        <option value="Black">
+                        <option value="Gray">
+                        <option value="Navy Blue">
+                        <option value="Red">
+                        <option value="White">
+                    </datalist>
+
+                    <br><br>
+                    <button type="button" onclick="submitColor()">Submit Color</button>
+                
+                </div>
+
+    <!-- Right side on the thank you hoodie and to ensure you're purchasing the correct hoodie before selecting "purchase my hoodie" -->
+                <div class="column">
+                    <img src="Pictures/Thank_You_Hoodie.jpg" alt="Thank you for your purchase on a hoodie" style="width:300px; height:300px; object-fit:cover;">
+                    <p>Confirm & complete your hoodie purchase below.</p>
+
+                    <form action="Thank_You_For_Your_Purchase.html" method="get" onsubmit="return checkFinalSelection ()">
+                        <select id="finalOption" name="finalOption"></select>
+                            <option value=""> - Submit size and color first - </option>
+                        </select>
+                        <br><br>
+                        <input type="submit" value="Purchase My Hoodie">
+                    </form>
+                </div>
+
+            </div>
         </div>
     </main>
 
@@ -136,12 +149,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+
         let savedSize = "";
         let savedColor = "";
 
         function submitSize() {
             const size = document.getElementById("sizeInput").value.trim();
-            if (!Size) {
+            if (!size) {
                 alert("Please enter a size first.");
                 return;
             }
@@ -160,31 +174,33 @@
             updateFinalDropdown();
             alert("Color submitted: " + color);
         }
+
         function updateFinalDropdown() {
             const finalSelect = document.getElementById("finalOption");
             finalSelect.innerHTML = "";
 
             if (!savedSize || !savedColor) {
                 const option = document.createElement("option");
-                option.value = savedSize + " - " + savedColor;
-                option.text = "Hoodie Size: " + savedSize + ", Color: " + savedColor;
+                option.value = "";
+                option.textContent = "Please submit size and color.";
                 finalSelect.appendChild(option);
                 return;
             }
 
             const combo = savedSize + " - " + savedColor;
+            const comboText = "You've selected a " + savedColor + ", " + savedSize + " hoodie. Thank you!";
             const option = document.createElement("option");
             option.value = combo;
-            option.textContent = combo;
+            option.textContent = comboText;
             finalSelect.appendChild(option);
         }
 
         function checkFinalSelection() {
             if (!savedSize || !savedColor) {
-                alert("Please submit both a size and a color before purchasing.");
+                alert("Please submit both a size and a color, before purchasing.");
                 return false;
             }
-            return false;
+            return true;
         }
 
     </script>
